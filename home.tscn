@@ -1,46 +1,23 @@
 [gd_scene format=3 uid="uid://o2uu4wo0uwjc"]
 
-[ext_resource type="Texture2D" uid="uid://b76rdxhh57fxx" path="res://icon.svg" id="1_tt30a"]
+[ext_resource type="Script" uid="uid://dr41pyqk3m1mx" path="res://home.gd" id="1_tt30a"]
 
 [node name="Home" type="Node" unique_id=849329421]
+script = ExtResource("1_tt30a")
 
 [node name="World Buttons" type="Node" parent="." unique_id=96744019]
 
-[node name="World1" type="TextureButton" parent="World Buttons" unique_id=143955143]
-modulate = Color(1, 0, 0, 1)
-offset_left = 140.0
-offset_top = 266.0
-offset_right = 268.0
-offset_bottom = 394.0
-texture_normal = ExtResource("1_tt30a")
+[node name="WorldBtnLocation1" type="Marker2D" parent="World Buttons" unique_id=1180805660]
+position = Vector2(187.46979, 261.3716)
 
-[node name="World2" type="TextureButton" parent="World Buttons" unique_id=12290139]
-modulate = Color(0.99215686, 0.40392157, 0, 1)
-offset_left = 319.0
-offset_top = 271.0
-offset_right = 447.0
-offset_bottom = 399.0
-texture_normal = ExtResource("1_tt30a")
+[node name="WorldBtnLocation2" type="Marker2D" parent="World Buttons" unique_id=176000652]
+position = Vector2(370.1798, 260.16162)
 
-[node name="World3" type="TextureButton" parent="World Buttons" unique_id=1955746759]
-modulate = Color(1, 0.9764706, 0, 1)
-offset_left = 511.0
-offset_top = 273.0
-offset_right = 639.0
-offset_bottom = 401.0
-texture_normal = ExtResource("1_tt30a")
+[node name="WorldBtnLocation3" type="Marker2D" parent="World Buttons" unique_id=1965564855]
+position = Vector2(585.5598, 267.4216)
 
-[node name="World4" type="TextureButton" parent="World Buttons" unique_id=719342212]
-modulate = Color(0, 1, 0, 1)
-offset_left = 705.0
-offset_top = 280.0
-offset_right = 833.0
-offset_bottom = 408.0
-texture_normal = ExtResource("1_tt30a")
+[node name="WorldBtnLocation4" type="Marker2D" parent="World Buttons" unique_id=292073243]
+position = Vector2(797.3098, 267.4216)
 
-[node name="World5" type="TextureButton" parent="World Buttons" unique_id=1536038270]
-offset_left = 911.0
-offset_top = 271.0
-offset_right = 1039.0
-offset_bottom = 399.0
-texture_normal = ExtResource("1_tt30a")
+[node name="WorldBtnLocation5" type="Marker2D" parent="World Buttons" unique_id=845175887]
+position = Vector2(981.2298, 275.8916)

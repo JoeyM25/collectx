@@ -14,6 +14,10 @@ config/name="Collectx"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+World_Functions="*uid://do1v13lmm860e"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

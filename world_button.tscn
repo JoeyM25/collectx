@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://dd64gk2qfepiw"]
 
-[ext_resource type="Texture2D" uid="uid://b76rdxhh57fxx" path="res://icon.svg" id="1_rheo4"]
 [ext_resource type="Script" uid="uid://jbmvbiltvqu4" path="res://world_button.gd" id="2_uy41v"]
 
 [node name="worldButton" type="TextureButton" unique_id=1040480324]
 offset_right = 40.0
 offset_bottom = 40.0
-texture_normal = ExtResource("1_rheo4")
 script = ExtResource("2_uy41v")
-color = null
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

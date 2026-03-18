@@ -18,5 +18,6 @@ func _on_pressed() -> void:
 		spawn_collectable()
 		
 func spawn_collectable() -> void:
-	var instance = collectable_scene.instantiate()
-	get_parent().add_child(instance)
+	var collectable_instance = collectable_scene.instantiate()
+	collectable_instance.position = position + Vector2(100, 100)
+	get_parent().add_child(collectable_instance)

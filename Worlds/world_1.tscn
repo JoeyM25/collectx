@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cq5fmigwipkf7"]
+
+[ext_resource type="Script" uid="uid://tv1vlsc0q4ah" path="res://Worlds/world_1.gd" id="1_qenw6"]
+[ext_resource type="PackedScene" uid="uid://dx5aogyb1tu0g" path="res://camera_2d.tscn" id="2_vigqh"]
+[ext_resource type="Texture2D" uid="uid://c1mb1f45hh1uk" path="res://Assets/World1-Temp-Background.png" id="3_qenw6"]
+
+[node name="World 1" type="Node" unique_id=1862981782]
+script = ExtResource("1_qenw6")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1294562687]
+offset_left = -2369.0
+offset_top = -1587.0
+offset_right = 3229.0
+offset_bottom = 1585.0
+texture = ExtResource("3_qenw6")
+
+[node name="W1 Piles" type="Node" parent="." unique_id=605209135]
+
+[node name="Pile1" type="Marker2D" parent="W1 Piles" unique_id=423999674]
+position = Vector2(-322.61816, -381.688)
+
+[node name="Pile2" type="Marker2D" parent="W1 Piles" unique_id=1510727174]
+position = Vector2(247.20117, 498.94214)
+
+[node name="Pile3" type="Marker2D" parent="W1 Piles" unique_id=1568211405]
+position = Vector2(2748.4868, -773.9015)
+
+[node name="Pile4" type="Marker2D" parent="W1 Piles" unique_id=973993240]
+position = Vector2(2445.0767, 987.35864)
+
+[node name="Pile5" type="Marker2D" parent="W1 Piles" unique_id=1376977934]
+position = Vector2(506.20996, 1194.5659)
+
+[node name="Pile6" type="Marker2D" parent="W1 Piles" unique_id=1467178720]
+position = Vector2(-1247.6499, 1053.9609)
+
+[node name="Pile7" type="Marker2D" parent="W1 Piles" unique_id=311300524]
+position = Vector2(1386.8403, -1351.1213)
+
+[node name="Pile8" type="Marker2D" parent="W1 Piles" unique_id=1513423991]
+position = Vector2(1327.6382, -685.0984)
+
+[node name="Pile9" type="Marker2D" parent="W1 Piles" unique_id=1106245088]
+position = Vector2(1964.06, -958.90784)
+
+[node name="Pile10" type="Marker2D" parent="W1 Piles" unique_id=1921238201]
+position = Vector2(2126.8657, -233.6831)
+
+[node name="Pile11" type="Marker2D" parent="W1 Piles" unique_id=1468391285]
+position = Vector2(1897.4575, 476.7412)
+
+[node name="Pile12" type="Marker2D" parent="W1 Piles" unique_id=258596913]
+position = Vector2(1571.8467, 1135.3638)
+
+[node name="Pile13" type="Marker2D" parent="W1 Piles" unique_id=1151726516]
+position = Vector2(-174.61328, 824.5532)
+
+[node name="Pile14" type="Marker2D" parent="W1 Piles" unique_id=229841177]
+position = Vector2(-633.42896, 336.13647)
+
+[node name="Pile15" type="Marker2D" parent="W1 Piles" unique_id=39256369]
+position = Vector2(965.0259, 247.3335)
+
+[node name="Pile16" type="Marker2D" parent="W1 Piles" unique_id=597399764]
+position = Vector2(609.8135, -670.2981)
+
+[node name="Pile17" type="Marker2D" parent="W1 Piles" unique_id=389121593]
+position = Vector2(-463.22314, -1247.5177)
+
+[node name="Pile18" type="Marker2D" parent="W1 Piles" unique_id=1372769140]
+position = Vector2(-1817.4695, 239.9331)
+
+[node name="Pile19" type="Marker2D" parent="W1 Piles" unique_id=1763111397]
+position = Vector2(-1351.2534, -477.89136)
+
+[node name="Pile20" type="Marker2D" parent="W1 Piles" unique_id=1392881434]
+position = Vector2(-1869.2712, -1314.12)
+
+[node name="Camera2D" parent="." unique_id=810259687 instance=ExtResource("2_vigqh")]
