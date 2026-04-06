@@ -1,14 +1,18 @@
-extends Node
+extends TextureButton
 
-var pile_scene = load("res://pile.tscn")
+@export var world_scene: String
+
+var world_img = load("res://Assets/icon.svg")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var world1_seed = "SEED"
-	
-	World_Functions.generate_world_piles(world1_seed, $"W1 Piles", pile_scene)
+	self.texture_normal = world_img
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(world_scene)

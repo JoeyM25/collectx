@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dx5aogyb1tu0g"]
+
+[ext_resource type="Script" uid="uid://bteortjngba5s" path="res://src/Systems/camera_2d.gd" id="1_u0e42"]
+[ext_resource type="Texture2D" uid="uid://b76rdxhh57fxx" path="res://Assets/icon.svg" id="2_jtxfu"]
+[ext_resource type="Texture2D" uid="uid://qsk72gmx0t02" path="res://Assets/epic.png" id="2_qqh52"]
+[ext_resource type="PackedScene" uid="uid://c0cpjy35yvnth" path="res://src/UI/inventory_ui.tscn" id="3_0kgy7"]
+
+[node name="Camera2D" type="Camera2D" unique_id=810259687]
+script = ExtResource("1_u0e42")
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=227825209]
+offset_left = 493.0
+offset_top = -309.0
+offset_right = 557.0
+offset_bottom = -245.0
+texture_normal = ExtResource("2_qqh52")
+
+[node name="InventoryButton" type="TextureButton" parent="." unique_id=804044337]
+offset_left = 437.0
+offset_top = 181.0
+offset_right = 565.0
+offset_bottom = 309.0
+texture_normal = ExtResource("2_jtxfu")
+
+[node name="InventoryUI" parent="." unique_id=1501727626 instance=ExtResource("3_0kgy7")]
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="InventoryButton" to="." method="_on_inventory_button_pressed"]

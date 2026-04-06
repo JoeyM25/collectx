@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7k7bgcf2kkw7"]
 
-[ext_resource type="Texture2D" uid="uid://b76rdxhh57fxx" path="res://icon.svg" id="1_rnvat"]
-[ext_resource type="Script" uid="uid://de14jivr251cy" path="res://pile.gd" id="2_1o32j"]
+[ext_resource type="Texture2D" uid="uid://b76rdxhh57fxx" path="res://Assets/icon.svg" id="1_rnvat"]
+[ext_resource type="Script" uid="uid://de14jivr251cy" path="res://src/Entities/Pile/pile.gd" id="2_1o32j"]
 
 [node name="pile" type="TextureButton" unique_id=1575627703]
 offset_left = 447.0

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dd64gk2qfepiw"]
 
-[ext_resource type="Script" uid="uid://jbmvbiltvqu4" path="res://world_button.gd" id="2_uy41v"]
+[ext_resource type="Script" uid="uid://jbmvbiltvqu4" path="res://src/UI/world_button.gd" id="2_uy41v"]
 
 [node name="worldButton" type="TextureButton" unique_id=1040480324]
 offset_right = 40.0

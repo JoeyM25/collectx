@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://o2uu4wo0uwjc"]
 
-[ext_resource type="Script" uid="uid://dr41pyqk3m1mx" path="res://home.gd" id="1_tt30a"]
+[ext_resource type="Script" uid="uid://dr41pyqk3m1mx" path="res://src/UI/home.gd" id="1_tt30a"]
+[ext_resource type="PackedScene" uid="uid://dx5aogyb1tu0g" path="res://src/Systems/camera_2d.tscn" id="2_dpj62"]
 
 [node name="Home" type="Node" unique_id=849329421]
 script = ExtResource("1_tt30a")
@@ -21,3 +22,22 @@ position = Vector2(797.3098, 267.4216)
 
 [node name="WorldBtnLocation5" type="Marker2D" parent="World Buttons" unique_id=845175887]
 position = Vector2(981.2298, 275.8916)
+
+[node name="DeleteSaveData" type="Button" parent="." unique_id=1519582541]
+offset_left = 3.0
+offset_top = 567.0
+offset_right = 106.0
+offset_bottom = 638.0
+
+[node name="Label" type="Label" parent="." unique_id=1715370661]
+texture_filter = 1
+offset_left = 4.0
+offset_top = 496.5104
+offset_right = 167.67474
+offset_bottom = 563.0
+text = "Click here to delete save data"
+
+[node name="Camera2D" parent="." unique_id=810259687 instance=ExtResource("2_dpj62")]
+position = Vector2(575, 324)
+
+[connection signal="pressed" from="DeleteSaveData" to="." method="_on_delete_save_data_pressed"]

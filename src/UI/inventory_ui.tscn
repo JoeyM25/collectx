@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c0cpjy35yvnth"]
+
+[ext_resource type="Script" uid="uid://dbh3o63axr13r" path="res://src/UI/inventory_ui.gd" id="1_1ld4v"]
+
+[node name="InventoryUI" type="CanvasLayer" unique_id=1501727626]
+script = ExtResource("1_1ld4v")
+
+[node name="Panel" type="Panel" parent="." unique_id=395039262]
+offset_left = 256.0
+offset_top = 90.0
+offset_right = 866.0
+offset_bottom = 515.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel" unique_id=930632246]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 5
+
+[node name="SellButton" type="Button" parent="." unique_id=1596213668]
+texture_filter = 1
+offset_left = 467.0
+offset_top = 455.0
+offset_right = 655.01904
+offset_bottom = 492.02032
+text = "Sell selected"
+
+[node name="Money" type="Label" parent="." unique_id=1645818309]
+offset_left = 263.0
+offset_top = 95.0
+offset_right = 370.0
+offset_bottom = 129.0
+
+[connection signal="pressed" from="SellButton" to="." method="_on_sell_button_pressed"]
