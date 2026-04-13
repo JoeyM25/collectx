@@ -17,13 +17,13 @@ func update_display():
 	for child in grid.get_children():
 		child.queue_free()
 		
-	var inventory = DataManager.game_data["inventory"]
+	var inventory = DataManager.game_data.inventory
 	for i in range(inventory.size()):
 		var item = inventory[i]
 		
 		var new_slot = slot_scene.instantiate()
-		new_slot.get_node("Label").text = str(item["quantity"])
-		var slot_texture = load(item["texture"])
+		new_slot.get_node("Label").text = str(item.quantity)
+		var slot_texture = load(item.texture_path)
 		new_slot.get_node("SlotTexture").texture = slot_texture
 		
 		new_slot.pressed.connect(_on_slot_selected.bind(i))
@@ -45,11 +45,10 @@ func _on_slot_selected(index: int):
 func _on_sell_button_pressed() -> void:
 	if selected_index == -1: return
 	
-	var inventory = DataManager.game_data["inventory"]
+	var inventory = DataManager.game_data.inventory
 	var item = inventory[selected_index]
 	
 	
 	
-	
 func update_money():
-	money_label = DataManager.game_data["world"]
+	money_label = DataManager.game_data.money
