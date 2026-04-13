@@ -13,15 +13,22 @@ func _ready() -> void:
 	
 	
 func add_to_inv():
-	var found = false
+	var found_item: InventoryItem = null
+	# var found = false
 	
-	for item in DataManager.game_data["inventory"]:
-		if item["id"] == item_id:
-			item["quantity"] += amount
-			found = true
+	for item in DataManager.game_data.inventory:
+		if item.id == item_id:
+			found_item = item
 			break
-	if not found:
-		DataManager.game_data["inventory"].append({"id": item_id, "quantity": amount, "texture": item_texture, "rarity": item_rarity})
+	if found_item:
+		found_item.quantity += amount
+	else:
+		var new_item = InventoryItem.new()
+		new_item.id = item_id
+		new_item.quantity = amount
+		new_item.rarity = item_rarity
+		new_item.texture_path = item_texture
+		DataManager.game_data.inventory.append(new_item)
 		
 	print("added to inventory")
 		
