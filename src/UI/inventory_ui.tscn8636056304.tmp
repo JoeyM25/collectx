@@ -79,18 +79,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Select an item"
 
-[node name="ItemRarity" type="Label" parent="Panel/VBoxContainer/Footer/ItemDetails"]
+[node name="ItemRarity" type="Label" parent="Panel/VBoxContainer/Footer/ItemDetails" unique_id=1118586445]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
 text = "---"
-
-[node name="ItemValue" type="Label" parent="Panel/VBoxContainer/Footer/ItemDetails"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
-text = "Value: 0"
-
 
 [node name="SellButton" type="Button" parent="Panel/VBoxContainer/Footer" unique_id=1596213668]
 custom_minimum_size = Vector2(200, 50)

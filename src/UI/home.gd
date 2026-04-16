@@ -12,7 +12,7 @@ func _ready() -> void:
 		button_inst.world_scene = world_scenes[0]
 		$"World Buttons".add_child(button_inst)
 		
-	SignalBus.diable_back_btn.emit()
+	SignalBus.disable_back_btn.emit()
 				
 	DataManager.load_game()
 

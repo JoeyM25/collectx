@@ -10,3 +10,6 @@ offset_bottom = 128.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("1_3dk6v")
 script = ExtResource("2_un20x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1879209904]
+texture_filter = 1

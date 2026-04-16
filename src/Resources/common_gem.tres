@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://caq8140hudvtm"]
+
+[ext_resource type="Script" uid="uid://dx5r3pao7f463" path="res://src/Resources/inventory_resource.gd" id="1_cuqir"]
+[ext_resource type="Texture2D" uid="uid://cg0r5ij1j3p0a" path="res://Assets/coin_gems/spr_coin_gri.png" id="2_1sdi0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd6u6"]
+atlas = ExtResource("2_1sdi0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvaq8"]
+atlas = ExtResource("2_1sdi0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti48u"]
+atlas = ExtResource("2_1sdi0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cj30"]
+atlas = ExtResource("2_1sdi0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txnlf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd6u6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvaq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ti48u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cj30")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_cuqir")
+id = "1-1-1"
+rarity = "common"
+display_name = "Common Gem"
+sprite_frames = SubResource("SpriteFrames_txnlf")
+metadata/_custom_type_script = "uid://dx5r3pao7f463"

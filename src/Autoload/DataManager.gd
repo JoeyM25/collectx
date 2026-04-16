@@ -1,18 +1,30 @@
 extends Node
 
 var game_data: GameData = GameData.new()
-const SAVE_PATH = "user://savegame.json"
+const SAVE_PATH = "user://savegame.tres"
+
+# Item pools by rarity
+var item_pools = {
+	"common": [],
+	"uncommon": [],
+	"rare": [],
+	"epic": [],
+	"legendary": []
+}
 
 func _ready() -> void:
 	load_game()
+	_initialize_item_pools()
 
-#var game_data = {
-	#"world": {
-		#"seed": "SEED",
-		#"generated_on": Time.get_datetime_dict_from_system(),
-	#},
-	#"inventory": []
-#}
+func _initialize_item_pools():
+	# Load existing items - in the future, we could scan a directory
+	register_item(load("res://src/Resources/common_gem.tres"))
+	# Add more items here as they are created
+
+func register_item(item: InventoryItem):
+	if item and item.rarity.to_lower() in item_pools:
+		item_pools[item.rarity.to_lower()].append(item)
+		print("Registered item: ", item.display_name, " (", item.rarity, ")")
 
 const rarity_prices = {
 	"common": 10,
@@ -22,58 +34,33 @@ const rarity_prices = {
 	"legendary": 200
 }
 
-
-
 func save_game():
-	ResourceSaver.save(game_data, SAVE_PATH)
-	#var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	#var json_string = JSON.stringify(game_data)
-	#file.store_string(json_string)
-	#file.close()
+	print("Saving game...")
+	var error = ResourceSaver.save(game_data, SAVE_PATH)
+	if error != OK:
+		print("Error saving game: ", error)
+	else:
+		print("Game saved successfully.")
 	
 func load_game():
 	if ResourceLoader.exists(SAVE_PATH):
-		game_data = ResourceLoader.load(SAVE_PATH)
+		var loaded_data = ResourceLoader.load(SAVE_PATH)
+		if loaded_data is GameData:
+			game_data = loaded_data
+		else:
+			print("Loaded data is not GameData. Creating new one.")
+			create_new_save()
 	else:
 		print("No save file found. Creating new one.")
-		game_data = GameData.new()
-		game_data.generated_on = Time.get_datetime_dict_from_system()
-	#if not FileAccess.file_exists(SAVE_PATH):
-		#print("No save file found :,(")
-		#return
-	#var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
-	#var json_string = file.get_as_text()
-	#file.close()
-	#
-	#var json = JSON.new()
-	#var error = json.parse(json_string)
-	#
-	#if error == OK:
-		#game_data = json.data
-	#else: print("JSON Parse Error: ", json.get_error_message())
-	#
+		create_new_save()
+
+func create_new_save():
+	game_data = GameData.new()
+	game_data.generated_on = Time.get_datetime_dict_from_system()
+	save_game()
 
 func delete_save_data():
 	if FileAccess.file_exists(SAVE_PATH):
 		DirAccess.remove_absolute(SAVE_PATH)
-	game_data = GameData.new()
-	game_data.generated_on = Time.get_datetime_dict_from_system()
-	#if FileAccess.file_exists(SAVE_PATH):
-		#var error = DirAccess.remove_absolute(SAVE_PATH)
-		#if error == OK:
-			#print("Save file successfully deleted.")
-		#else:
-			#print("Error deleting save file: ", error)
-			#
-	#game_data = {
-		#"world": {
-			#"seed": "SEED",
-			#"generated_on": Time.get_datetime_dict_from_system(),
-		#},
-		#"inventory": {
-			#"items": [],
-			#"money": 0
-		#}
-	#}
-	save_game()
+	create_new_save()
 	get_tree().reload_current_scene()

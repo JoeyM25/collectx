@@ -6,8 +6,8 @@ var is_dragging = false
 @onready var inventory_ui = get_node("InventoryUI")
 
 func _ready() -> void:
-	SignalBus.diable_back_btn.connect(_on_disable_back_btn)
-	SignalBus.diable_back_btn.connect(_disable_movement)
+	SignalBus.disable_back_btn.connect(_on_disable_back_btn)
+	SignalBus.disable_back_btn.connect(_disable_movement)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && can_move:

@@ -12,43 +12,54 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
+	print("Pile clicked at ", global_position)
+	
+	# Click feedback: Bounce effect
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2(2.6, 2.6), 0.05)
+	tween.tween_property(self, "scale", Vector2(2.5, 2.5), 0.1)
+	
 	amount_cleaned += 1
 	
 	if amount_cleaned == clean_num:
 		spawn_collectable()
 		
 func spawn_collectable() -> void:
-	var collectable_instance = collectable_scene.instantiate()
-	collectable_instance.position = position + Vector2(100, 100)
-	# Add randomness to this and somehow make the texutre more unique to each item
 	var rarity_gen = randi_range(0, 100)
+	var rarity = get_collectable_rarity(rarity_gen)
+	
+	var pool = DataManager.item_pools.get(rarity, [])
+	
+	var collectable_instance = collectable_scene.instantiate()
+	collectable_instance.global_position = global_position + Vector2(50, 50)
 	collectable_instance.amount = 1
-	collectable_instance.item_rarity = get_collectable_rarity(rarity_gen)
-	var temp_rarity = collectable_instance.item_rarity
-	if temp_rarity == "common":
-		collectable_instance.item_texture = "res://Assets/common.png"
-		collectable_instance.item_id = "1"
-	elif temp_rarity == "uncommon":
-		collectable_instance.item_texture = "res://Assets/uncommon.png"
-		collectable_instance.item_id = "2"
-	elif temp_rarity == "rare":
-		collectable_instance.item_texture = "res://Assets/rare.png"
-		collectable_instance.item_id = "3"
-	elif temp_rarity == "epic":
-		collectable_instance.item_texture = "res://Assets/epic.png"
-		collectable_instance.item_id = "4"
-	elif temp_rarity == "legendary":
-		collectable_instance.item_texture = "res://Assets/legendary.png"
-		collectable_instance.item_id = "5"		
+	
+	if pool.size() > 0:
+		# Pick a random item from the rarity pool
+		var item_template = pool[randi() % pool.size()]
+		collectable_instance.init_from_template(item_template)
+	else:
+		# Fallback if pool is empty (keep current placeholder behavior)
+		collectable_instance.item_rarity = rarity
+		collectable_instance.item_id = "legacy_" + rarity
+		collectable_instance.display_name = rarity.capitalize() + " Placeholder"
+		if rarity == "common": collectable_instance.item_texture = "res://Assets/common.png"
+		elif rarity == "uncommon": collectable_instance.item_texture = "res://Assets/uncommon.png"
+		elif rarity == "rare": collectable_instance.item_texture = "res://Assets/rare.png"
+		elif rarity == "epic": collectable_instance.item_texture = "res://Assets/epic.png"
+		elif rarity == "legendary": collectable_instance.item_texture = "res://Assets/legendary.png"
+	
 	get_parent().add_child(collectable_instance)
-	
-	
-func get_collectable_rarity(id):
-	if id <= 50: return "common"
-	elif id > 50 and id <= 75: return "uncommon"
-	elif id > 75 and id <= 90: return "rare"
-	elif id > 90 and id <= 96: return "epic"
-	elif id > 96 and id <= 100: return "legendary"
+	collectable_instance.move_to_front()
+	print("Spawned collectable: ", collectable_instance.item_id, " (", rarity, ") at ", collectable_instance.global_position)
+	self.disabled = true
+
+func get_collectable_rarity(rarity_chance):
+	if rarity_chance <= 50: return "common"
+	elif rarity_chance > 50 and rarity_chance <= 75: return "uncommon"
+	elif rarity_chance > 75 and rarity_chance <= 90: return "rare"
+	elif rarity_chance > 90 and rarity_chance <= 96: return "epic"
+	elif rarity_chance > 96 and rarity_chance <= 100: return "legendary"
 
 
 func set_item_attributes(id: String, texture: String, rarity: String, value: int, instance):
